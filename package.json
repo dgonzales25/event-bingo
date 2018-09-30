@@ -11,7 +11,7 @@
   },
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/npm/cli.git"
+    "url" : "https://github.com/dgonzales25/event-bingo.git"
   },
   "private": true,
   "dependencies": {
