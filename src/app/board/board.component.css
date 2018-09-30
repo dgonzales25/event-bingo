@@ -1,0 +1,15 @@
+.square {
+    border: 1px outset blue;
+    background-color: lightBlue;
+    height:100px;
+    width:100px;
+    cursor:pointer;
+ }
+ 
+ .squareSelected {
+    border: 1px outset blue;
+    background-color: blue;
+    height:100px;
+    width:100px;
+    cursor:pointer;
+ }

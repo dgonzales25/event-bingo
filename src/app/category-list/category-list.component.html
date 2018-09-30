@@ -1,0 +1,22 @@
+<div>
+  <h1>Categories</h1>
+  <form>
+    <div class="form-group">
+      <input #newCategory type="text" class="form-control" id="newCategory" required>
+    </div>
+
+    <button (click)=add(newCategory.value)>Add</button>
+
+    <div>
+      <ul>
+        <li *ngFor="let category of categories;let i = index">
+          <button (click)="remove(i)">Remove</button>
+          <span> {{category}}</span>   
+        </li>
+      </ul>
+    </div>
+
+    <button (click)="generate()">Generate</button>
+
+  </form>
+</div>

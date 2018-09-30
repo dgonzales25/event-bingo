@@ -1,0 +1,48 @@
+<!-- <table>
+  <tr>
+    <td><app-board-square [x]=0 [y]=0 [name]="1"></app-board-square></td>
+    <td><app-board-square [x]=1 [y]=0 [name]="2"></app-board-square></td>
+    <td><app-board-square [x]=2 [y]=0 [name]="3"></app-board-square></td>
+    <td><app-board-square [x]=3 [y]=0 [name]="4"></app-board-square></td>
+    <td><app-board-square [x]=4 [y]=0 [name]="5"></app-board-square></td>
+  </tr>
+  <tr>
+    <td><app-board-square [x]=0 [y]=1 [name]="6"></app-board-square></td>
+    <td><app-board-square [x]=1 [y]=1 [name]="7"></app-board-square></td>
+    <td><app-board-square [x]=2 [y]=1 [name]="8"></app-board-square></td>
+    <td><app-board-square [x]=3 [y]=1 [name]="9"></app-board-square></td>
+    <td><app-board-square [x]=4 [y]=1 [name]="10"></app-board-square></td>
+  </tr>
+  <tr>
+    <td><app-board-square [x]=0 [y]=2 [name]="11"></app-board-square></td>
+    <td><app-board-square [x]=1 [y]=2 [name]="12"></app-board-square></td>
+    <td><app-board-square [x]=2 [y]=2 [name]="13"></app-board-square></td>
+    <td><app-board-square [x]=3 [y]=2 [name]="14"></app-board-square></td>
+    <td><app-board-square [x]=4 [y]=2 [name]="15"></app-board-square></td>
+  </tr>
+  <tr>
+    <td><app-board-square [x]=0 [y]=3 [name]="16"></app-board-square></td>
+    <td><app-board-square [x]=1 [y]=3 [name]="17"></app-board-square></td>
+    <td><app-board-square [x]=2 [y]=3 [name]="18"></app-board-square></td>
+    <td><app-board-square [x]=3 [y]=3 [name]="19"></app-board-square></td>
+    <td><app-board-square [x]=4 [y]=3 [name]="20"></app-board-square></td>
+  </tr>
+  <tr>
+    <td><app-board-square [x]=0 [y]=4 [name]="21"></app-board-square></td>
+    <td><app-board-square [x]=1 [y]=4 [name]="22"></app-board-square></td>
+    <td><app-board-square [x]=2 [y]=4 [name]="23"></app-board-square></td>
+    <td><app-board-square [x]=3 [y]=4 [name]="24"></app-board-square></td>
+    <td><app-board-square [x]=4 [y]=4 [name]="25"></app-board-square></td>
+  </tr>
+</table> -->
+
+<table>
+  <tr *ngFor="let squaresRows of squaresGrid; let x = index">
+      <td *ngFor="let square of squaresRows; let y = index">
+        <input [ngClass]="(square.selected==false)?'square':'squareSelected'" type="button" (click)="select(x, y)" value={{square.name}}/>
+      </td>
+  </tr>
+</table>
+<span *ngIf="bingo">BINGO</span>
+<app-category-list (reloadGrid)=reloadGrid($event)></app-category-list>
+  
