@@ -12,22 +12,32 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     this.gridSize = 5;
-    this.squaresGrid =  [[], [], [], [], []];
+    this.squaresGrid =  [];
+    this.bingo = false;
     for (let x = 0; x < this.gridSize; x++) {
+      this.squaresGrid[x] = [];
       for (let y = 0; y < this.gridSize; y++) {
-        this.squaresGrid[y][x] = new BoardSquare('X:' + x + ' and Y:' + y);
+        this.squaresGrid[x][y] = new BoardSquare('X:' + x + ' and Y:' + y, false);
       }
     }
+    this.addFree();
   }
 
   reloadGrid(event: string[]) {
     // TODO: make this not do random if there is more then 25 elements
     for (let x = 0; x < this.gridSize; x++) {
       for (let y = 0; y < this.gridSize; y++) {
-        this.squaresGrid[y][x] = new BoardSquare(event[Math.floor(Math.random() * event.length)]);
+        this.squaresGrid[x][y] = new BoardSquare(event[Math.floor(Math.random() * event.length)], false);
       }
     }
+    this.addFree();
     this.bingo = false;
+  }
+
+  addFree() {
+    if (this.gridSize % 2 === 1) {
+      this.squaresGrid[Math.floor(this.gridSize / 2)][Math.floor(this.gridSize / 2)] = new BoardSquare('Free', true);
+    }
   }
 
   select(x: number, y: number) {
@@ -86,9 +96,9 @@ class BoardSquare {
   name: string;
   selected: boolean;
 
-  constructor(name: string) {
+  constructor(name: string, selected: boolean) {
     this.name = name;
-    this.selected = false;
+    this.selected = selected;
   }
 
   invertSelected(): void {
